@@ -141,11 +141,10 @@ section button:hover {
 .descricao-meta {
     color: #45474B; /* Cor do texto */
     margin: 0.5rem 0; /* Margem acima e abaixo */
-
-    /* --- Novas linhas para padronizar o tamanho --- */
-    height: 2.4em; /* Define uma altura fixa para 2 linhas de texto. */
+    height: 2.4em; 
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Limita o texto a 2 linhas */
+    line-clamp: 2; /* A propriedade padrão (sugerida pelo aviso) */
+    -webkit-line-clamp: 2; /* A versão antiga para compatibilidade */
     -webkit-box-orient: vertical;
     overflow: hidden; /* Esconde o texto que "sobra" */
     text-overflow: ellipsis; /* Adiciona "..." no final */
@@ -236,8 +235,6 @@ footer {
         font-size: 0.9rem; /* Tamanho da fonte do rodapé em telas pequenas */
     }
 }
-
-/* --- Estilização da Barra de Rolagem (Adicionar ao final) --- */
 
 /* Funciona em navegadores WebKit (Chrome, Safari, Edge) */
 .resultados-pesquisa::-webkit-scrollbar {
