@@ -1,4 +1,4 @@
-## Desvendando Atletas - Imersão Dev com Google Gemini
+## Atletas do Brasil - Imersão Dev com Google Gemini
 
 **O que essa aplicação faz?**
 
