@@ -1,4 +1,4 @@
-## Desvendando Atletas - Imersão Dev com Google Gemini
+## Atletas do Brasil - Imersão Dev com Google Gemini
 
 **O que essa aplicação faz?**
 
@@ -35,5 +35,6 @@ Se você é um desenvolvedor e quer ajudar a melhorar essa aplicação, fique à
 **Dúvidas?**
 
 Se tiver alguma dúvida, pode abrir uma issue aqui no GitHub ou me mandar um email.
+
 
 **Vamos juntos criar a maior base de dados de atletas do Brasil!**
