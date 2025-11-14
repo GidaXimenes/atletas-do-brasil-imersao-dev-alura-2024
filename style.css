@@ -8,8 +8,8 @@ body {
     display: flex; /* Usa Flexbox para layout */
     flex-direction: column; /* Alinha os itens na vertical */
     align-items: center; /* Centraliza os itens horizontalmente */
-    justify-content: center; /* Centraliza os itens verticalmente */
-    height: 100vh; /* Preenche a altura total da viewport */
+    /* justify-content: center; */ /* Removido para o footer funcionar */
+    min-height: 100vh; /* Garante que a página preencha a altura total */
     margin: 0; /* Remove a margem padrão */
     padding: 0; /* Remove o padding padrão */
 }
@@ -59,6 +59,30 @@ section button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais intensa */
 }
 
+/* Estiliza o contêiner dos botões de filtro */
+.filtros {
+    margin-top: 1rem; /* Espaçamento acima dos botões */
+    display: flex; /* Alinha os botões lado a lado */
+    gap: 0.5rem; /* Espaço entre os botões de filtro */
+}
+
+/* Estiliza os botões de filtro individuais */
+.filtros button {
+    padding: 0.5rem 1rem; /* Espaçamento interno */
+    border: 1px solid #30475E; /* Borda na cor principal */
+    border-radius: 1.5rem; /* Borda arredondada */
+    background-color: #F5F7F8; /* Fundo claro */
+    color: #30475E; /* Texto na cor principal */
+    font-size: 0.9rem; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de clique */
+}
+
+/* Efeito hover para os botões de filtro */
+.filtros button:hover {
+    background-color: #30475E; /* Inverte as cores ao passar o mouse */
+    color: #F5F7F8;
+}
+
 /* Estiliza a caixa de resultados da pesquisa */
 .resultados-pesquisa {
     width: 60rem; /* Largura máxima da caixa de resultados */
@@ -76,12 +100,30 @@ section button:hover {
     padding: 1rem; /* Espaçamento interno */
     margin-bottom: 1rem; /* Espaçamento abaixo dos itens */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    display: flex; /* Usa Flexbox para alinhar imagem e texto lado a lado */
+    align-items: center; /* Alinha verticalmente a imagem e o texto */
+    gap: 1.5rem; /* Espaçamento entre a imagem e o bloco de texto */
+}
+
+/* Estiliza a imagem do atleta */
+.atleta-img {
+    width: 100px; /* Largura da imagem */
+    height: 100px; /* Altura da imagem */
+    border-radius: 50%; /* Transforma a imagem em um círculo */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border: 3px solid #30475E; /* Adiciona uma borda na cor do botão */
+}
+
+/* Estiliza o contêiner de informações (título, descrição) */
+.info-atleta {
+    flex: 1; /* Faz o bloco de texto ocupar o espaço restante */
 }
 
 /* Estiliza os títulos dentro dos itens de resultado */
 .item-resultado h2 {
     font-size: 1.5rem; /* Tamanho da fonte */
     color: #222831; /* Cor do texto */
+    margin-top: 0; /* Remove a margem superior padrão do h2 */
 }
 
 /* Estiliza os links dentro dos itens de resultado */
@@ -99,6 +141,14 @@ section button:hover {
 .descricao-meta {
     color: #45474B; /* Cor do texto */
     margin: 0.5rem 0; /* Margem acima e abaixo */
+
+    /* --- Novas linhas para padronizar o tamanho --- */
+    height: 2.4em; /* Define uma altura fixa para 2 linhas de texto. */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita o texto a 2 linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden; /* Esconde o texto que "sobra" */
+    text-overflow: ellipsis; /* Adiciona "..." no final */
 }
 
 /* Estiliza o rodapé da página */
@@ -106,12 +156,15 @@ footer {
     background-color: #F5F7F8; /* Cor de fundo do rodapé */
     color: #45474B; /* Cor do texto */
     text-align: center; /* Alinha o texto ao centro */
-    padding: 0; /* Espaçamento interno */
+    padding: 1rem 0; /* Espaçamento interno (vertical) */
     width: 100%; /* Largura total da página */
-    position: absolute; /* Posiciona o rodapé */
-    bottom: 0; /* Alinha ao fundo da página */
+    /* position: absolute; */ /* Removido */
+    /* bottom: 0; */ /* Removido */
     font-size: 1rem; /* Tamanho da fonte */
+    margin-top: auto; /* Empurra o rodapé para o fim da página */
 }
+
+/* --- Media Queries para Responsividade --- */
 
 @media (max-width: 768px) {
     h1 {
@@ -132,6 +185,12 @@ footer {
     .item-resultado h2 {
         font-size: 1.3rem; /* Tamanho da fonte dos títulos em telas menores */
     }
+
+    /* Ajuste para telas menores: imagem e texto */
+    .atleta-img {
+        width: 80px;
+        height: 80px;
+    }
 }
 
 /* Responsividade para celulares */
@@ -150,10 +209,23 @@ footer {
         padding: 0.6rem 1rem; /* Espaçamento interno do botão em telas pequenas */
         font-size: 0.9rem; /* Tamanho da fonte do botão em telas pequenas */
     }
+    
+    /* Ajuste dos filtros para telas pequenas */
+    .filtros {
+        flex-wrap: wrap; /* Permite que os botões quebrem a linha */
+        justify-content: center; /* Centraliza os botões */
+    }
 
     .resultados-pesquisa {
         width: 90%; /* Largura da caixa de resultados em telas pequenas */
         height: 50vh; /* Altura da caixa de resultados em telas pequenas */
+    }
+
+    /* Ajuste dos itens de resultado para telas pequenas */
+    .item-resultado {
+        flex-direction: column; /* Coloca a imagem em cima do texto */
+        text-align: center; /* Centraliza o texto */
+        gap: 0.5rem; /* Diminui o espaço */
     }
 
     .item-resultado h2 {
@@ -163,4 +235,25 @@ footer {
     footer {
         font-size: 0.9rem; /* Tamanho da fonte do rodapé em telas pequenas */
     }
+}
+
+/* --- Estilização da Barra de Rolagem (Adicionar ao final) --- */
+
+/* Funciona em navegadores WebKit (Chrome, Safari, Edge) */
+.resultados-pesquisa::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+}
+
+.resultados-pesquisa::-webkit-scrollbar-track {
+    background: #DDDDDD; /* Cor da "trilha" (fundo da barra) */
+    border-radius: 4px; /* Borda arredondada */
+}
+
+.resultados-pesquisa::-webkit-scrollbar-thumb {
+    background-color: #30475E; /* Cor da barra (a mesma dos botões) */
+    border-radius: 4px; /* Borda arredondada */
+}
+
+.resultados-pesquisa::-webkit-scrollbar-thumb:hover {
+    background-color: #45474B; /* Cor da barra ao passar o mouse */
 }
